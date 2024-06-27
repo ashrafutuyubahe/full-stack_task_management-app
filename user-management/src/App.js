@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import EmployeeForm from './components/detailForm';
+import EmployeeList from "./components/employeeList";
 
 
 import './app.css';
@@ -20,7 +21,7 @@ function App() {
         </header>
         <Routes>
           <Route path="/" element={<EmployeeForm />} />
-          {/* <Route path="/employees" element={<EmployeeList />} /> */}
+          <Route path="/employees" element={<EmployeeList />} />
           <Route path="/add-employee" element={<EmployeeForm />} />
         </Routes>
       </div>
