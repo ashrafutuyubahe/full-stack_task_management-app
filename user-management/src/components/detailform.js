@@ -33,7 +33,7 @@ const EmployeeForm = () => {
     e.preventDefault();
     console.log(formData)
     try {
-      const response = await fetch("http://localhost:3002/addtask", {
+      const response = await fetch("http://localhost:3002/addTask", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

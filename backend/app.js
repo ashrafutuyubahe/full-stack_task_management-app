@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 
 // POST endpoint to add a task
-app.post("/addtask", async (req, res) => {
+app.post("/addTask", async (req, res) => {
     try {
         const {
             title,
@@ -68,8 +68,19 @@ app.post("/addtask", async (req, res) => {
     }
 });
 
+
+//getting all users
+app.get('/getall', async (req, res) => {
+  try {
+      const employees = await Employee.find();
+      res.status(200).json(employees);
+  } catch (error) {
+      res.status(400).send(error);
+  }
+});
+
 // GET endpoint to get data by ID
-app.get('/gettask/:id', async (req, res) => {
+app.get('/getTask/:id', async (req, res) => {
     try {
         const employee = await Employee.findById(req.params.id);
         if (employee) {
@@ -82,8 +93,8 @@ app.get('/gettask/:id', async (req, res) => {
     }
 });
 
-// DELETE endpoint to delete data by ID
-app.delete('/deletetask/:id', async (req, res) => {
+
+app.delete('/removeTask/:id', async (req, res) => {
     try {
         const deletedEmployee = await Employee.findByIdAndDelete(req.params.id);
         if (deletedEmployee) {
@@ -96,8 +107,8 @@ app.delete('/deletetask/:id', async (req, res) => {
     }
 });
 
-// PUT endpoint to update data by ID
-app.put('/updatetask/:id', async (req, res) => {
+
+app.put('/updateTask/:id', async (req, res) => {
     try {
         const {
             title,
