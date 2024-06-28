@@ -4,36 +4,32 @@ import EmployeeForm from './components/detailForm';
 import EmployeeList from "./components/employeeList";
 
 
-import './app.css';
-
 function App() {
   return (
     <Router>
-      <div className="App">
-        <header>
-          <nav>
-            <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/employees">View Employees</Link></li>
-             
+      <div className="container-fluid">
+        <header className="row">
+          <nav className="col">
+            <ul className="nav justify-content-center">
+              <li className="nav-item">
+                <Link to="/" className="nav-link" style={{ color: 'white' }}>Add Employees</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/employees"style={{ color: 'white' }} className="nav-link">View Employees</Link>
+              </li>
             </ul>
           </nav>
         </header>
-        <Routes>
-          <Route path="/" element={<EmployeeForm />} />
-          <Route path="/employees" element={<EmployeeList />} />
-          <Route path="/add-employee" element={<EmployeeForm />} />
-        </Routes>
+        <div className="row justify-content-center">
+          <Routes className="col-md-8">
+            <Route path="/" element={<EmployeeForm />} />
+            <Route path="/employees" element={<EmployeeList />} />
+            <Route path="/add-employee" element={<EmployeeForm />} />
+          </Routes>
+        </div>
       </div>
     </Router>
   );
 }
-
-const Home = () => (
-  <div>
-    <h2>Welcome to the Employee Management System</h2>
-    <p>Select a link from the navigation menu.</p>
-  </div>
-);
 
 export default App;

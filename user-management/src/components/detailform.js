@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../app.css';
+import './form.css';
 
 const EmployeeForm = () => {
   const [formData, setFormData] = useState({
@@ -31,7 +31,7 @@ const EmployeeForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData)
+  
     try {
       const response = await fetch("http://localhost:3002/addTask", {
         method: 'POST',
@@ -40,20 +40,19 @@ const EmployeeForm = () => {
         },
         body: JSON.stringify(formData),
       });
+  
       if (response.ok) {
-      console.log(response)
-
-        alert('Employee registered successfully');
+        const responseData = await response.text(); 
+        alert(responseData); 
       } else {
-        console.log(response)
-        alert('Failed to register employee');
+        alert('Failed to register employee'); 
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('An error occurred');
+      alert('An error occurred'); 
     }
   };
-
+  
   return (
     <div className="content-page">
       <div className="form-cont">
