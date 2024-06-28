@@ -10,7 +10,7 @@ Before running the application, ensure you have the following installed:
 1.Clone the repository:
 
 git clone (https://github.com/ashrafutuyubahe/full-stack_task_management-app)
-cd <your repository directory>
+cd your repository directory
 
 2.Install dependencies
 npm install
@@ -21,7 +21,7 @@ Ensure MongoDB is running locally or adjust the connection settings in dbconnect
 4.Start the server:
 npm start
 
-# API Endpoints
+# API Endpoints of api
 
 ## POST /addTask
 
@@ -40,7 +40,7 @@ Retrieves a specific employee task by ID.
 
 Deletes a specific employee task by ID.
 
-## PUT /updateTask/
+## PUT /updateTask/:id
 
 Updates a specific employee task by ID.
 Requires a JSON body with updated employee details.
